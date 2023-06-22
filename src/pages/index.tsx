@@ -27,8 +27,7 @@ const IndexPage: React.FC = () => {
         <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400"></p>
           <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-            Unlock Your
-            <br className="hidden md:block" />
+            Unlock Your <br className="hidden md:block" />
             Perfect <span className="inline-block text-blue-500">Diet Plan</span>
           </h2>
           <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
