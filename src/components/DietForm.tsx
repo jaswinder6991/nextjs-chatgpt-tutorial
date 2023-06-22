@@ -36,6 +36,7 @@ const DietForm: React.FC = () => {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
+    setLoading(true)
     e.preventDefault()
     setFormSubmitted(true)
     // console.log('Form Values:', {
@@ -145,7 +146,7 @@ const DietForm: React.FC = () => {
         </div>
 
         <div className="mb-3">
-          <label className="block mb-2 font-medium">Select Foods:</label>
+          <label className="block mb-2 font-medium">Select Foods (Coming Soon):</label>
           <div>
             {foodOptions.map((food) => (
               <label key={food.value} htmlFor={food.value} className="flex items-center">
@@ -184,7 +185,7 @@ const DietForm: React.FC = () => {
         </>
       )} */}
       </form>
-      {formSubmitted && !loading && diet && (
+      {formSubmitted && !loading && diet ? (
         <div className="mx-20">
           <div className="mt-4 p-4 bg-gray-100">
             <h2 className="text-lg font-semibold mb-2">Form Information:</h2>
@@ -200,6 +201,14 @@ const DietForm: React.FC = () => {
             <div style={{ whiteSpace: 'pre-line' }}>{diet}</div>
           </div>
         </div>
+      ) : (
+        loading && (
+          <div className="mx-20">
+            <div className="mt-4 p-4 bg-gray-100">
+              <h2 className="text-lg font-semibold mb-2">Loading...</h2>
+            </div>
+          </div>
+        )
       )}
     </div>
   )
