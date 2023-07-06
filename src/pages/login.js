@@ -12,7 +12,7 @@ export default function Login() {
 
   useEffect(() => {
     // Check for an issuer on our user object. If it exists, route them to the dashboard.
-    user?.issuer && router.push('/dietForm')
+    user?.issuer && router.push('/home')
   }, [user])
 
   const handleLogin = async (e) => {
