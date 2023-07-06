@@ -53,7 +53,7 @@ export default function Login() {
         if (registerRes.ok) {
           console.log(registerRes.statusText, userMetadata)
           setUser(userMetadata)
-          router.push('/dietForm')
+          router.push('/home')
         } else {
           console.error('Error registering user:', registerRes.statusText)
         }
