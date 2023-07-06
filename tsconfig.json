@@ -30,5 +30,5 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ]
+, "src/pages/login.js", "src/pages/_app.js", "lib/UserContext.js", "lib/magic.js", "src/pages/_app.js"  ]
 }

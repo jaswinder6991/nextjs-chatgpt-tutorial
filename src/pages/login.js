@@ -10,7 +10,6 @@ export default function Login() {
   // Create our router
   const router = useRouter()
 
-  // Make sure to add useEffect to your imports at the top
   useEffect(() => {
     // Check for an issuer on our user object. If it exists, route them to the dashboard.
     user?.issuer && router.push('/dietForm')
@@ -36,9 +35,28 @@ export default function Login() {
 
       // If successful, update our user state with their metadata and route to the dashboard
       if (res.ok) {
-        const userMetadata = await magic.user.getMetadata()
-        setUser(userMetadata)
-        router.push('/dietForm')
+        // const userMetadata = await magic.user.getInfo()
+        // console.log(userMetadata)
+        // setUser(userMetadata)
+        // router.push('/dietForm')
+        const userMetadata = await magic.user.getInfo()
+
+        // Register the user in MongoDB
+        const registerRes = await fetch('/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(userMetadata) // Pass the userMetadata to the register endpoint
+        })
+
+        if (registerRes.ok) {
+          console.log(registerRes.statusText, userMetadata)
+          setUser(userMetadata)
+          router.push('/dietForm')
+        } else {
+          console.error('Error registering user:', registerRes.statusText)
+        }
       }
     } catch (error) {
       console.error(error)
@@ -46,16 +64,6 @@ export default function Login() {
   }
 
   return (
-    // <form onSubmit={handleLogin}>
-    //   <label htmlFor="email">Email</label>
-    //   <input
-    //     name="email"
-    //     type="email"
-    //     value={email}
-    //     onChange={(e) => setEmail(e.target.value)}
-    //   />
-    //   <button type="submit">Log in</button>
-    // </form>
     <div className="flex items-center justify-center mt-20">
       <div className="bg-gray-100 p-8 shadow-md rounded-md w-96">
         <h2 className="text-2xl font-bold mb-4">Login</h2>

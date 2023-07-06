@@ -73,10 +73,8 @@ const DietForm: React.FC = () => {
 
   return (
     <div>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-md mx-auto p-4 border border-gray-300 rounded-lg shadow"
-      >
+      <h2 className="text-2xl font-bold mb-4">Diet Chart</h2>
+      <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
         <div className="mb-3">
           <label htmlFor="gender" className="block mb-2 font-medium">
             Gender:
@@ -92,7 +90,6 @@ const DietForm: React.FC = () => {
             <option value="female">Female</option>
           </select>
         </div>
-
         <div className="mb-3">
           <label htmlFor="age" className="block mb-2 font-medium">
             Age:
@@ -105,7 +102,6 @@ const DietForm: React.FC = () => {
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
         </div>
-
         <div className="mb-3">
           <label htmlFor="height" className="block mb-2 font-medium">
             Height (cm):
@@ -118,7 +114,6 @@ const DietForm: React.FC = () => {
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
         </div>
-
         <div className="mb-3">
           <label htmlFor="weight" className="block mb-2 font-medium">
             Weight (kgs):
@@ -131,7 +126,6 @@ const DietForm: React.FC = () => {
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
         </div>
-
         <div className="mb-3">
           <label htmlFor="monthlyWeightLoss" className="block mb-2 font-medium">
             Monthly Weight Loss Goal (kgs):
@@ -144,8 +138,7 @@ const DietForm: React.FC = () => {
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
         </div>
-
-        <div className="mb-3">
+        <div className="col-span-2 mb-3">
           <label className="block mb-2 font-medium">Select Foods (Coming Soon):</label>
           <div>
             {foodOptions.map((food) => (
