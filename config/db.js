@@ -22,7 +22,7 @@ import mongoose from "mongoose";
 const dbConnect = () => {
     console.log("Connecting mongoDB")
     if (mongoose.connection.readyState >= 1) return Promise.resolve();
-    mongoose.connect("mongodb+srv://jassification:Satoshi%402030@cluster0.xk5izqu.mongodb.net/nutrigenius");//process.env.NEXT_PUBLIC_MONGODB_URI);
+    mongoose.connect(process.env.NEXT_PUBLIC_DB_URI);
 };
 
 export default dbConnect;
